@@ -1,5 +1,9 @@
 body {
   font-family: Arial, sans-serif;
+
+  background-image: url(735997.jpg);
+  background-repeat: no-repeat;
+  background-size: 1400px;
 }
 
 h1 {
@@ -27,6 +31,12 @@ li.first-letter {
   text-transform: capitalize;
 }
 
+small {
+  margin-top: 0;
+  color: white;
+  font-weight: bold;
+  font-style: oblique;
+}
 .weather-app-wrapper {
   max-width: 600px;
   margin: 50px auto;
@@ -34,10 +44,11 @@ li.first-letter {
 
 .weather-app {
   max-width: 600px;
-  margin: 030px auto;
+  margin: 30px 30px 0px 30px auto;
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: white;
 }
 .overview {
   margin-bottom: 20px;
