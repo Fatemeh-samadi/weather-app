@@ -16,14 +16,21 @@ function formatDate(timestemp) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saterday",
+    "Saturday",
   ];
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+var now = new Date();
+if (now.getHours() > 5 && now.getHours() < 18) {
+  document.body.className += " day";
+} else {
+  document.body.className += " night";
+}
 
 function displayTemperature(response) {
   let temperautreElement = document.querySelector("#temperature");
+  let ftemperatureElement = document.querySelector("#anothertemperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -32,11 +39,15 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   temperautreElement.innerHTML = Math.round(response.data.main.temp);
+
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  ftemperatureElement.innerHTML = Math.round(
+    response.data.main.temp * 1.5 + 32
+  );
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -51,7 +62,7 @@ function search(city) {
 }
 
 function handleSubmit(event) {
-  event.prevetDefault();
+  event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
@@ -59,4 +70,4 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Paris");
+search("Mashhad");

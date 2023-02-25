@@ -1,7 +1,6 @@
 body {
   font-family: Arial, sans-serif;
 
-  background-image: url(735997.jpg);
   background-repeat: no-repeat;
   background-size: 1400px;
 }
@@ -74,4 +73,15 @@ small {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+.another {
+  font-weight: bold;
+}
+.day {
+  background-image: url("day.jpg");
+  background-size: 100%;
+}
+.night {
+  background-image: url("735997.jpg");
+  background-size: 100%;
 }
